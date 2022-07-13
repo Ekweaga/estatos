@@ -2,7 +2,7 @@ import React ,{useState,useRef}from 'react'
 import './signup.css'
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 function Signup() {
     const history = useHistory();
@@ -70,7 +70,7 @@ function Signup() {
               {success ? <p>{success}</p>: ''}
             </div>
                 <div> <button>{loading ? "CREATING...." :"SIGN UP"}</button></div>
-                <div>Already have an account? <span>Login</span></div>
+                <div>Already have an account? <span><Link to='/signin' style={{color:'white',textDecoration:'none'}}>Login</Link></span></div>
                
             </form>
         </div>

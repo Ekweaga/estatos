@@ -2,7 +2,7 @@ import React ,{useState,useRef}from 'react'
 import './signup.css'
 import { auth } from '../firebase';
 import {  signInWithEmailAndPassword } from 'firebase/auth';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 
 function Login() {
     const history = useHistory();
@@ -26,16 +26,31 @@ function Login() {
         setLoading(false)
       }
      
-     
+     else{
       try{
-         await signInWithEmailAndPassword(auth,email,password);
-        setLoading(false)
-        history.replace("/upload");
+        await signInWithEmailAndPassword(auth,email,password).then((user)=>{
+          console.log(user)
+          console.log(user.user.accessToken)
+        localStorage.setItem('access', JSON.stringify(user.user.accessToken))
+        history.replace("/")
+      
       }
-      catch(err){
-        console.log(err)
-        seterror(err.message)
-      }
+        );
+       
+       setLoading(false)
+      
+     }
+     catch(err){
+       console.log(err)
+       seterror(err.message)
+     }
+     setdata({
+      email:'',
+      password: '',
+      
+    });
+     }
+     
    
     
   
@@ -47,11 +62,12 @@ function Login() {
             <h1>Estatos</h1>
             <p>Welcome, Login</p>
         </div>
-        <form>
+        <form onSubmit={login}>
            
-            <div> <input type="email" placeholder="Buyer's Email"/></div>
-            <div> <input type="password" placeholder="Security password"/></div>
+            <div> <input type="email" placeholder="Buyer's Email" name="email" onChange={handlechange} value={email}/></div>
+            <div> <input type="password" placeholder="Security password" name="password" onChange={handlechange} value={password}/></div>
             <div> <button>Login</button></div>
+            <div>Don't have an Account? <span><Link to='/signup' style={{color:'white',textDecoration:'none'}}>Sign Up</Link></span></div>
            
         </form>
     </div>

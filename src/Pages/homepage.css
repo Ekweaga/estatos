@@ -1,0 +1,17 @@
+.banner{
+    background: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.6),rgba(0,0,0,0.6)) ,url('./images\ \(5\).jpeg');
+    height:300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+     color: white;
+}
+.banner h1{
+    text-align:center;
+    margin:0;
+    font-size:25px;
+    font-weight:600;
+}
