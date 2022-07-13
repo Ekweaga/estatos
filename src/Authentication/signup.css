@@ -1,0 +1,29 @@
+.signupform{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    color:white;
+}
+form div{
+    margin-bottom: 20px;
+}
+form div input{
+    padding:10px;
+    width:280px;
+    background: transparent;
+    outline:none;
+    border:none;
+    border-radius: 10px;
+    border:1px solid rgb(15, 6, 143);
+    color:white;
+}
+.form button{
+    width:280px;
+    border: none;
+    background-color: blue;
+    color:white;
+    padding: 6px;
+    cursor:pointer;
+    height:30px;
+}
