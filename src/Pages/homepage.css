@@ -15,3 +15,22 @@
     font-size:25px;
     font-weight:600;
 }
+.rent{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    margin-top:100px;
+}
+.rent .img{
+    width:100%;
+    height: 300px;
+}
+
+@media(max-width:700px){
+    .rent{
+        display:grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .rent .img{
+        width:300px;
+    }
+}
